@@ -1,169 +1,708 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gabriel Alejandro Cisneros | Desarrollador Junior</title>
+    <title>Gabriel Alejandro Cisneros | Developer</title>
+
+    <meta name="description"
+        content="CV y portfolio de Gabriel Alejandro Cisneros, Técnico en Programación y desarrollador Junior.">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #222;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        h1 {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+
+            padding: 18px 8%;
+        }
+
+        nav .container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 8%;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #cbd5e1;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #334155;
+            color: #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #111827;
+        }
+
+        .about p {
+            max-width: 850px;
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #1e293b;
+            border: 1px solid #334155;
+
+            padding: 10px 16px;
+
+            border-radius: 20px;
+
+            color: #cbd5e1;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: #111827;
+        }
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+        .project {
+            background: #0f172a;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .project p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .tech {
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        /* EDUCATION */
+
+        .education {
+            border-left: 3px solid #38bdf8;
+            padding-left: 25px;
+        }
+
+        .education h3 {
             margin-bottom: 5px;
         }
 
-        h2 {
-            border-bottom: 2px solid #222;
-            padding-bottom: 5px;
-            margin-top: 35px;
+        .education p {
+            color: #94a3b8;
         }
 
-        .subtitle {
-            color: #555;
-            font-size: 20px;
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
         }
 
-        .contacto {
-            margin: 20px 0;
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 25px;
         }
 
-        .proyecto {
-            margin-bottom: 20px;
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid #1e293b;
+
+            color: #64748b;
         }
 
-        a {
-            color: #0066cc;
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-    <header>
-        <h1>Gabriel Alejandro Cisneros</h1>
 
-        <p class="subtitle">
-            Técnico en Programación | Desarrollador Junior
-        </p>
+    <!-- NAVBAR -->
 
-        <div class="contacto">
-            <p>
-                📧
-                <a href="mailto:gabrielns2025@gmail.com">
-                    gabrielns2025@gmail.com
-                </a>
-            </p>
+    <nav>
 
-            <p>
-                💻
-                <a href="https://github.com/GabrielCisner0s" target="_blank">
-                    GitHub
-                </a>
-            </p>
+        <div class="container">
 
-            <p>
-                🔗
-                <a href="https://www.linkedin.com/in/gabriel-alejandro-cisneros-37b9a424/" target="_blank">
-                    LinkedIn
-                </a>
-            </p>
+            <div class="logo">
+                GC.
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#sobre-mi">Sobre mí</a>
+                </li>
+
+                <li>
+                    <a href="#tecnologias">Tecnologías</a>
+                </li>
+
+                <li>
+                    <a href="#proyectos">Proyectos</a>
+                </li>
+
+                <li>
+                    <a href="#formacion">Formación</a>
+                </li>
+
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+
+            </ul>
+
         </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-container">
+
+            <h1>
+                Gabriel Alejandro
+                <span>Cisneros</span>
+            </h1>
+
+            <h2>
+                Técnico en Programación · Junior Developer
+            </h2>
+
+            <p>
+                Desarrollador orientado al backend y al desarrollo
+                de aplicaciones, interesado en crear software
+                mantenible, aprender nuevas tecnologías y
+                continuar creciendo profesionalmente.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:gabrielns2025@gmail.com">
+
+                    Contactarme
+
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://github.com/GabrielCisner0s"
+                    target="_blank">
+
+                    GitHub
+
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://www.linkedin.com/in/gabriel-alejandro-cisneros-37b9a424/"
+                    target="_blank">
+
+                    LinkedIn
+
+                </a>
+
+            </div>
+
+        </div>
+
     </header>
 
 
-    <section>
-        <h2>Perfil profesional</h2>
+    <!-- SOBRE MI -->
 
-        <p>
-            Técnico en Programación orientado al desarrollo de software,
-            con conocimientos en desarrollo backend, APIs REST,
-            bases de datos y aplicaciones de escritorio.
-        </p>
+    <section id="sobre-mi" class="about">
 
-        <p>
-            Actualmente enfocado en continuar desarrollándome como
-            programador Junior y adquirir experiencia profesional
-            en proyectos de software.
-        </p>
-    </section>
+        <div class="container">
 
-
-    <section>
-        <h2>Tecnologías</h2>
-
-        <p>
-            C# · .NET · ASP.NET Core · Python · Django ·
-            JavaScript · React · HTML · CSS · SQL ·
-            PostgreSQL · MongoDB · Git · GitHub
-        </p>
-    </section>
-
-
-    <section>
-        <h2>Proyectos</h2>
-
-        <div class="proyecto">
-            <h3>MedCare API</h3>
+            <h2 class="section-title">
+                Sobre <span>mí</span>
+            </h2>
 
             <p>
-                API REST desarrollada con C#, .NET 9,
-                Entity Framework Core y PostgreSQL.
-                Implementa una arquitectura por capas,
-                repositorios, servicios y documentación mediante Swagger.
+
+                Soy Técnico en Programación y me encuentro
+                enfocado en desarrollarme profesionalmente
+                como programador Junior.
+
+                Tengo experiencia trabajando en proyectos
+                personales utilizando C#, .NET, Python,
+                Django, JavaScript, React y bases de datos
+                relacionales y NoSQL.
+
             </p>
-        </div>
 
-
-        <div class="proyecto">
-            <h3>SmartStock</h3>
+            <br>
 
             <p>
-                API de gestión de inventario desarrollada con
-                Python, Django REST Framework y PostgreSQL,
-                incluyendo autenticación JWT, gestión de productos,
-                movimientos de stock y pruebas automatizadas.
+
+                Me interesa especialmente el desarrollo
+                backend, la construcción de APIs REST,
+                arquitectura de software, testing y
+                buenas prácticas de programación.
+
             </p>
+
         </div>
 
+    </section>
 
-        <div class="proyecto">
-            <h3>Aplicaciones de escritorio .NET</h3>
+
+    <!-- TECNOLOGIAS -->
+
+    <section id="tecnologias">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Tecnologías
+            </h2>
+
+            <div class="skills">
+
+                <span class="skill">C#</span>
+                <span class="skill">.NET</span>
+                <span class="skill">ASP.NET Core</span>
+                <span class="skill">Entity Framework Core</span>
+
+                <span class="skill">Python</span>
+                <span class="skill">Django</span>
+                <span class="skill">Django REST Framework</span>
+
+                <span class="skill">JavaScript</span>
+                <span class="skill">React</span>
+
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+
+                <span class="skill">SQL</span>
+                <span class="skill">PostgreSQL</span>
+                <span class="skill">MongoDB</span>
+
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROYECTOS -->
+
+    <section id="proyectos" class="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Proyectos
+            </h2>
+
+
+            <div class="project-grid">
+
+
+                <article class="project">
+
+                    <h3>
+                        MedCare API
+                    </h3>
+
+                    <p>
+
+                        API REST para la gestión de médicos,
+                        desarrollada aplicando arquitectura
+                        por capas y separación de responsabilidades.
+
+                    </p>
+
+                    <div class="tech">
+
+                        C# · .NET 9 · ASP.NET Core ·
+                        Entity Framework Core · PostgreSQL
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <h3>
+                        SmartStock
+                    </h3>
+
+                    <p>
+
+                        API de gestión de inventario con
+                        autenticación, productos, movimientos
+                        de stock, reportes y pruebas automatizadas.
+
+                    </p>
+
+                    <div class="tech">
+
+                        Python · Django · DRF · PostgreSQL · JWT
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <h3>
+                        Aplicación de gestión hospitalaria
+                    </h3>
+
+                    <p>
+
+                        Aplicación de escritorio desarrollada
+                        para gestionar turnos y operaciones
+                        relacionadas con pacientes.
+
+                    </p>
+
+                    <div class="tech">
+
+                        C# · .NET · Windows Forms
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <h3>
+                        Galaga
+                    </h3>
+
+                    <p>
+
+                        Proyecto de aprendizaje de desarrollo
+                        de videojuegos utilizando C# y una
+                        biblioteca gráfica.
+
+                    </p>
+
+                    <div class="tech">
+
+                        C# · .NET · Raylib
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMACION -->
+
+    <section id="formacion">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Formación
+            </h2>
+
+            <div class="education">
+
+                <h3>
+                    Técnico en Programación
+                </h3>
+
+                <p>
+                    Formación orientada al desarrollo de
+                    software, programación y bases de datos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section id="contacto" class="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contacto
+            </h2>
 
             <p>
-                Desarrollo de aplicaciones de escritorio utilizando
-                C# y Windows Forms, incluyendo una aplicación para
-                la gestión de turnos de un hospital.
+                ¿Querés contactarme para una oportunidad
+                laboral o proyecto?
             </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:gabrielns2025@gmail.com">
+
+                    Enviar email
+
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://github.com/GabrielCisner0s"
+                    target="_blank">
+
+                    GitHub
+
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://www.linkedin.com/in/gabriel-alejandro-cisneros-37b9a424/"
+                    target="_blank">
+
+                    LinkedIn
+
+                </a>
+
+            </div>
+
         </div>
+
     </section>
 
 
-    <section>
-        <h2>Formación</h2>
+    <!-- FOOTER -->
 
-        <p>
-            <strong>Técnico en Programación</strong>
-        </p>
-    </section>
+    <footer>
 
+        © 2026 Gabriel Alejandro Cisneros
 
-    <section>
-        <h2>Contacto</h2>
+    </footer>
 
-        <p>
-            Estoy interesado en oportunidades como
-            Desarrollador Junior, especialmente en posiciones
-            .NET / Backend.
-        </p>
-    </section>
 
 </body>
+
 </html>
